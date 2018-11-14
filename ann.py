@@ -28,11 +28,11 @@ def train(training_set, ex_outputs, test_example, weights, limit):
             else:
                 output = 0
 
-            # Get the error in the ouput to adjust the weights
-            difference = ex_outputs[i] - output
-            if (difference != 0):
+            if (ex_outputs[i] != output):
                 error = True
 
+            # Get the error in the ouput to adjust the weights
+            difference = ex_outputs[i] - output
             # Adjust the weights with the difference and the learning rate
             for j in range(0, len(weights)):
                 weights[j] += training_set[i][j] * difference * learning_rate
